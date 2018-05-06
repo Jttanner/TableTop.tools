@@ -6,15 +6,18 @@ var path = require("path");
 var index_1 = require("./routes/index");
 var user_1 = require("./routes/user");
 var Dice_1 = require("./routes/Dice");
+var layout_1 = require("./routes/layout");
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('view options', { layout: 'views/layout.html' });
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index_1.default);
 app.use('/users', user_1.default);
 app.use('/dice', Dice_1.default);
+app.use('/layout', layout_1.default);
 app.use(express.static(path.join(__dirname, 'public')));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

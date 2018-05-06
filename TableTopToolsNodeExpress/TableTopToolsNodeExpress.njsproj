@@ -37,13 +37,31 @@
     <Content Include="public\stylesheets\Dice.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\stylesheets\navBar.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\DiceRoller.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\Error.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\layout.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout_header.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout_navbar.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\Scheduler.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\toolkit.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\toolkit_body.html">
       <SubType>Code</SubType>
     </Content>
     <TypeScriptCompile Include="app.ts" />
@@ -51,6 +69,12 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\index.ts" />
+    <TypeScriptCompile Include="routes\layout.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\toolkit.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\user.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />

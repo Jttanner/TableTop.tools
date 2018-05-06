@@ -5,21 +5,25 @@ import path = require('path');
 import routes from './routes/index';
 import users from './routes/user';
 import dice from './routes/Dice';
+import layout from './routes/layout';
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
+app.set('view engine', 'ejs');
+
 app.engine('html', require('ejs').renderFile);
 
-app.set('view engine', 'ejs');
+app.set('view options', { layout: 'views/layout.html' });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dice', dice);
+app.use('/layout', layout);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler

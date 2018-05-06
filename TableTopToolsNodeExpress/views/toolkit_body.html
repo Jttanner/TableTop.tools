@@ -1,0 +1,18 @@
+﻿<style>
+    .toolkit{
+        background-color:antiquewhite;
+    }
+</style>
+
+<div class="toolkit" >
+    <h3>Toolkit</h3>
+    <button data-toggle="collapse" data-target="#dice">Dice</button>
+    <div id="dice" class="collapse">
+        <% include DiceRoller.html %>
+    </div> <br/>
+    <button data-toggle="collapse" data-target="#spellbook">Spellbook</button>
+    <div id="spellbook" class="collapse">
+        <h4>Search</h4>
+        <textarea id="ta_spellSearch"></textarea>
+    </div>
+</div>
