@@ -1,17 +1,22 @@
 ﻿<% include application_head.html %>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+    var socket = io();
+</script>
+<script>
     function joinRoom() {
-        var roomName = document.getElementById('ta_roomName').value;
-        var socket = io();
-        socket.emit('test');
+        var roomName = document.getElementById('ta_roomName').value;  
+        var displayName = document.getElementById('ta_displayName').value;
+        socket.emit('joinSession', {room: roomName, name: displayName});
     }
 </script>
 
 <div id="contentBody">
     <h3>Sessions</h3>
+    <h5>Display Name</h5>
+    <textarea id="ta_displayName"></textarea>
     <h5>Room Name</h5>
-    <textarea id="ta_roomName" v-model="contentBody.roomName"></textarea>
+    <textarea id="ta_roomName"></textarea>
     <button id="btn_joinRoom" onclick="joinRoom()">Join</button>
 </div>
 

@@ -16,7 +16,8 @@
     "express": "^4.14.0",
     "pug": "^2.0.0-rc.3",
     "socket.io": "^2.1.0",
-    "socketio": "^1.0.0"
+    "socketio": "^1.0.0",
+    "sqlite3": "^4.0.0"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",

@@ -18,6 +18,8 @@ io.on('connection', function (socket) {
     console.log('connection');
 });
 
+var sessionSocket = require('./sockets/sessionSockets')(io);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 

@@ -74,6 +74,9 @@
       <SubType>Code</SubType>
     </Content>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="DataAccess\sqlite3\Sessions\SessionDao.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\Dice.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -96,8 +99,15 @@
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
     <Content Include="views\index.html" />
+    <TypeScriptCompile Include="sockets\sessionSockets.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="DataAccess\sqlite3\" />
+    <Folder Include="DataAccess\sqlite3\Sessions\" />
+    <Folder Include="sockets\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

@@ -8,4 +8,6 @@ router.get('/', (req: express.Request, res: express.Response) => {
     res.render('sessions.html', { title: 'Express' });
 });
 
+
+
 export default router;
