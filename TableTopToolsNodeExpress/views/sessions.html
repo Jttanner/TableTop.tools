@@ -1,25 +1,19 @@
 ﻿<% include application_head.html %>
-
-<div id="contentBody">
-    <h3>{{title}}</h3>
-
-</div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-    console.log('test')
-    var socket = io();
-    socket.emit('test');
+    function joinRoom() {
+        var roomName = document.getElementById('ta_roomName').value;
+        var socket = io();
+        socket.emit('test');
+    }
 </script>
 
-<script>
-    var contentBody = new Vue({
-        el: '#contentBody',
-        data: {
-            title: 'Sessions'
-        }
-    })
-</script>
-
+<div id="contentBody">
+    <h3>Sessions</h3>
+    <h5>Room Name</h5>
+    <textarea id="ta_roomName" v-model="contentBody.roomName"></textarea>
+    <button id="btn_joinRoom" onclick="joinRoom()">Join</button>
+</div>
 
 <%include application_bottom.html %>
 
