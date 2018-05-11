@@ -40,6 +40,12 @@
     <Content Include="public\stylesheets\navBar.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\application_bottom.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\application_head.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\DiceRoller.html">
       <SubType>Code</SubType>
     </Content>
@@ -55,7 +61,10 @@
     <Content Include="views\layout_navbar.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\Scheduler.html">
+    <Content Include="views\scheduling.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\sessions.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\toolkit.html">
@@ -70,6 +79,12 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\index.ts" />
     <TypeScriptCompile Include="routes\layout.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\scheduling.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\sessions.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\toolkit.ts">

@@ -14,7 +14,8 @@
     "debug": "^2.2.0",
     "ejs": "^2.5.8",
     "express": "^4.14.0",
-    "pug": "^2.0.0-rc.3"
+    "pug": "^2.0.0-rc.3",
+    "socket.io": "^2.1.0"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",

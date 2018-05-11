@@ -1,17 +1,26 @@
 ﻿<% include application_head.html %>
 
 <div id="contentBody">
-    {{title}}
+    <h3>{{title}}</h3>
+
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    console.log('test')
+    var socket = io();
+    socket.emit('test');
+</script>
 
 <script>
     var contentBody = new Vue({
         el: '#contentBody',
         data: {
-            title: 'home page'
+            title: 'Sessions'
         }
     })
 </script>
+
+
 <%include application_bottom.html %>
 
 

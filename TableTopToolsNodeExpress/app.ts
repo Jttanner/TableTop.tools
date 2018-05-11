@@ -6,8 +6,17 @@ import routes from './routes/index';
 import users from './routes/user';
 import dice from './routes/Dice';
 import layout from './routes/layout';
+import scheduling from './routes/scheduling';
+import sessions from './routes/sessions';
 
 var app = express();
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function (socket) {
+    console.log('connection');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dice', dice);
-app.use('/layout', layout);
+//app.use('/layout', layout);
+app.use('/scheduling', scheduling);
+app.use('/sessions', sessions);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
@@ -40,7 +51,7 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
     app.use((err: any, req, res, next) => {
         res.status(err['status'] || 500);
-        res.render('error', {
+        res.render('Error.html', {
             message: err.message,
             error: err
         });
@@ -59,6 +70,6 @@ app.use((err: any, req, res, next) => {
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function () {
+var server = http.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });
