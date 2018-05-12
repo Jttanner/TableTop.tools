@@ -1,17 +1,7 @@
 ﻿<% include application_head.html %>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    var socket = io();
-</script>
-<script>
-    function joinRoom() {
-        var roomName = document.getElementById('ta_roomName').value;  
-        var displayName = document.getElementById('ta_displayName').value;
-        socket.emit('joinSession', {room: roomName, name: displayName});
-    }
-</script>
 
-<div id="contentBody">
+
+<div id="div_joinRoom">
     <h3>Sessions</h3>
     <h5>Display Name</h5>
     <textarea id="ta_displayName"></textarea>
@@ -19,6 +9,54 @@
     <textarea id="ta_roomName"></textarea>
     <button id="btn_joinRoom" onclick="joinRoom()">Join</button>
 </div>
+
+<div id="div_chatRoom" style="visibility:hidden">
+    <textarea readonly id="roomChat"></textarea>
+    <textarea id="ta_messageToSend"></textarea>
+    <button id="sendMessageButton" onclick="sendMessage()">Send</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('joinSessionNoName', function (data) {
+        alert('You must have a display name.')
+    });
+    socket.on('joinSessionNameTaken', function (data) {
+        alert('That display name is already taken in this session.')
+    });
+
+    //TODO: make it so we don't get every other rooms messages
+    socket.on('messageToClient', function (data) {
+        var test = document.getElementById('ta_roomName')
+        if (document.getElementById('ta_roomName').value == data.room) {
+            document.getElementById('roomChat').value += '\n' + data.name + ': ' + data.message
+        }
+
+    });
+</script>
+<script>
+    function joinRoom() {
+        var roomName = document.getElementById('ta_roomName').value;
+        var displayName = document.getElementById('ta_displayName').value;
+        socket.emit('joinSession', { room: roomName, name: displayName });
+        //TODO: conditions for whether or not join was successful
+        document.getElementById('div_joinRoom').style.visibility = "hidden";
+        document.getElementById('div_chatRoom').style.visibility = "visible";
+    }
+
+    function sendMessage() {
+        var roomName = document.getElementById('ta_roomName').value;
+        var displayName = document.getElementById('ta_displayName').value;
+        var messageToSend = document.getElementById('ta_messageToSend').value;
+        var sendData = {
+            room: roomName,
+            name: displayName,
+            message: messageToSend
+        }
+        socket.emit('messageToServer', sendData)
+    }
+</script>
 
 <%include application_bottom.html %>
 
